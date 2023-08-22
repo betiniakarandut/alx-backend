@@ -67,15 +67,16 @@ class Server:
         """
         Retrieves information about a page.
         """
-        page_data = self.get_page(page, page_size)
-        start, end = index_range(page, page_size)
-        total_pages = math.ceil(len(self.__dataset) / page_size)
-        page_info = {
-            'page_size': len(page_data),
+        data = self.get_page(page, page_size)
+        start_idx, end_idx = index_range(page, page_size)
+
+        total_pages = math.ceil(len(self.dataset()) / page_size)
+        new_data = {
+            'page_size': len(data),
             'page': page,
-            'data': page_data,
-            'next_page': page + 1 if end < len(self.__dataset) else None,
-            'prev_page': page - 1 if start > 0 else None,
-            'total_pages': total_pages,
+            'data': data,
+            'next_page': page + 1 if end_idx < len(self.dataset()) else None,
+            'prev_page': page - 1 if start_idx > 0 else None,
+            'total_pages': total_pages
         }
-        return page_info
+        return new_data
