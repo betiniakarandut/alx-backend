@@ -2,7 +2,6 @@
 """LIFOCache module inherits from BaseCaching"""
 from base_caching import BaseCaching
 from collections import deque
-
 BaseCaching = __import__("base_caching").BaseCaching
 
 
@@ -47,4 +46,3 @@ class FIFOCache(BaseCaching):
                 return None
             else:
                 return self.cache_data[key]
-
