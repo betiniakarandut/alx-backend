@@ -34,6 +34,14 @@ class FIFOCache(BaseCaching):
         self.cache_data[key] = item
 
         def get(self, key):
+            """Retrieves the value linked to key
+
+            Args:
+                key[str] - to check
+
+            Returns:
+                value linked to key
+            """
             if key is None or not self.cache_data:
                 return None
             else:
