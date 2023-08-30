@@ -20,6 +20,7 @@ babel = Babel(app)
 
 @app.route('/')
 def index_1() -> str:
+    """renders a page with timestamp"""
     timestamp = datetime(2023, 8, 30, 1, 35, 0)
     formatted_timestamp = format_datetime(timestamp, format='medium')
     return render_template('1-index.html',

@@ -8,6 +8,10 @@ app = Flask(__name__)
 # Render a basic flask app
 @app.route('/')
 def index_0() -> str:
+    """
+    - renders a basic test page
+    - to ensure that flask is running
+    """
     return render_template(f'0-index.html')
 
 
