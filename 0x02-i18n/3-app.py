@@ -19,7 +19,7 @@ babel = Babel(app)
 
 
 @app.route('/')
-def index_1() -> str:
+def index_3() -> str:
     """renders a page with Language translation"""
     return render_template('3-index.html')
 
