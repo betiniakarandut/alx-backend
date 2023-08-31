@@ -34,6 +34,9 @@ def get_user(user_id):
 
 @app.before_request
 def before_request():
+    """Checks user info before any other
+    request is processed
+    """
     user_id = request.args.get('login_as')
     if user_id:
         user = get_user(int(user_id))
@@ -44,8 +47,8 @@ def before_request():
 @app.route('/')
 def index_5() -> str:
     """renders on a page best matching language"""
-    return render_template('5-index.html')
+    return render_template('5-index.html', users=users)
 
 
 if __name__ == "__main__":
-    app.run(host='127.0.0.1', port=5000, debug=True)
+    app.run(host='127.0.0.8', port=5000, debug=True)
